@@ -1,0 +1,38 @@
+{
+  "author": "gabe",
+  "bugs": {
+    "url": "https://github.com/celo-org/celo-composer/issues"
+  },
+  "description": "Custom Celo Composer project.",
+  "homepage": "https://github.com/celo-org/celo-composer/blob/main/README.md",
+  "keywords": [
+    "celo-composer",
+    "celo"
+  ],
+  "license": "MIT",
+  "name": "jazmeen-contracts",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/celo-org/celo-composer.git"
+  },
+  "scripts": {
+    "react-app:dev": "yarn workspace @jazmeen-contracts/react-app dev",
+    "react-app:build": "yarn workspace @jazmeen-contracts/react-app build",
+    "react-app:start": "yarn workspace @jazmeen-contracts/react-app start",
+    "react-app:lint": "yarn workspace @jazmeen-contracts/react-app lint",
+    "hardhat:postinstall": "yarn workspace @jazmeen-contracts/hardhat postinstall",
+    "hardhat:compile": "yarn workspace @jazmeen-contracts/hardhat compile",
+    "hardhat:tsc": "yarn workspace @jazmeen-contracts/hardhat tsc",
+    "hardhat:build": "yarn workspace @jazmeen-contracts/hardhat build",
+    "hardhat:clean": "yarn workspace @jazmeen-contracts/hardhat clean",
+    "hardhat:run:node": "yarn workspace @jazmeen-contracts/hardhat run:node",
+    "hardhat:test": "yarn workspace @jazmeen-contracts/hardhat test",
+    "hardhat:prettier": "yarn workspace @jazmeen-contracts/hardhat prettier",
+    "hardhat:sync:abis": "yarn workspace @jazmeen-contracts/hardhat sync:abis"
+  },
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ]
+}
