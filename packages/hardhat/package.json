@@ -26,7 +26,8 @@
     "typescript": "^5.5.3"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "ethers": "^5.7.2"
   },
   "scripts": {
     "postinstall": "chmod +x sync-abis.js",
