@@ -3,23 +3,22 @@ dotenv.config();
 const hre = require("hardhat");
 
 async function main() {
-    // Deploy JazmeenFactory with your deployer address
-    const [deployer] = await hre.ethers.getSigners();
-  
-    console.log("Deploying contracts with account:", deployer.address);
-  
-    // Deploy the Factory contract
-    const JazmeenFactory = await hre.ethers.deployContract("JazmeenFactory");
-    const factory = await JazmeenFactory.deploy(deployer.address);  // Pass deployer address
-  
-    await factory.waitForDeployment();
-    console.log("JazmeenFactory deployed to:", factory.address);
-  }
-  
-  // Run the script
-  main()
-    .then(() => process.exit(0))
-    .catch((error) => {
-      console.error(error);
-      process.exit(1);
-    });
+  const [deployer] = await hre.ethers.getSigners();
+  console.log("Deploying with account:", deployer.address);
+
+  const NFT_POSITION_MANAGER = "0x3b3f0A1948bAb88A88f54124523d120B1aA2d6a"; // Ubeswap V3 on Celo
+  const JazmeenFactory = await hre.ethers.getContractFactory("JazmeenFactory");
+
+   const factory = await JazmeenFactory.deploy(deployer.address, NFT_POSITION_MANAGER);
+  await factory.waitForDeployment();
+  console.log("JazmeenFactory deployed at:", factory.target); 
+
+  //TODO add UBESWAP liquidity pool creation
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error("Error deploying:", error);
+    process.exit(1);
+  });
